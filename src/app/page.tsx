@@ -1,15 +1,10 @@
-"use client";
-
-import React, { useEffect } from "react";
-import Image from "next/image";
-import { redirect } from "next/navigation";
+import React from "react";
+import Layout from "@/components/Layout";
 
 export default function Home() {
-  useEffect(() => {
-    redirect("/under-construction");
-  }, []);
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <Layout>
+      <p className="">Homepage</p>
+    </Layout>
   );
 }

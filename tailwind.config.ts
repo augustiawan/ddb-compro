@@ -45,6 +45,8 @@ const config: Config = {
         },
         blue: {
           DEFAULT: "#0344DC",
+          200: "#0081FF",
+          300: "#C8EDFF",
         },
       },
       spacing: {
