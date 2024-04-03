@@ -44,19 +44,41 @@ const UnderConstruction = () => {
       <div className="bg-blue py-16 h-[73px] md:h-[85px]">
         <Marquee speed={75}>
           {[Array(3)].map((_, index) => (
-            <div className="" key={index}>
-              <h1
-                key={index}
-                className="uppercase text-white text-32 md:text-[42px] leading-[127%] font-mono inline-block mr-[48px]"
-              >
-                seek and see wait for DASSEIN new play playground
-              </h1>
-              <h1
-                key={index}
-                className="uppercase text-white text-32 md:text-[42px] leading-[127%] font-mono inline-block mr-[48px]"
-              >
-                seek and see wait for DASSEIN new play playground
-              </h1>
+            <div className="flex items-center gap-[80px] mx-[40px]" key={index}>
+              <div className="flex items-center gap-[80px]">
+                <div className="relative aspect-[16/3] w-[232px]">
+                  <Image
+                    src="/images/ddb-xerv-logo.svg"
+                    alt="Xerv logo"
+                    fill={true}
+                    sizes="auto"
+                    className="block"
+                  />
+                </div>
+                <h1
+                  key={index}
+                  className="uppercase text-white text-32 md:text-[42px] leading-[127%] font-mono inline-block"
+                >
+                  WEBSITE DEVELOPMENT BY XERV PROJECT
+                </h1>
+              </div>
+              <div className="flex items-center gap-[80px]">
+                <div className="relative aspect-[16/3] w-[232px]">
+                  <Image
+                    src="/images/ddb-xerv-logo.svg"
+                    alt="Xerv logo"
+                    fill={true}
+                    sizes="auto"
+                    className="block"
+                  />
+                </div>
+                <h1
+                  key={index}
+                  className="uppercase text-white text-32 md:text-[42px] leading-[127%] font-mono inline-block"
+                >
+                  WEBSITE DEVELOPMENT BY XERV PROJECT
+                </h1>
+              </div>
             </div>
           ))}
         </Marquee>
