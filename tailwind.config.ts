@@ -39,6 +39,7 @@ const config: Config = {
       colors: {
         white: {
           DEFAULT: "#ffffff",
+          300: "#FFFDFD",
         },
         black: {
           DEFAULT: "#000000",

@@ -71,13 +71,22 @@ const Footer = () => {
               © Copyright 2023 Dassein Design Bureau — All Rights Reserved
             </span>
             <div className="flex items-center gap-[32px] font-inter font-medium text-[12.46px] leading-[15.08px]">
-              <Link href="" className="block">
+              <Link
+                href=""
+                className="block transition transition-all duration-300 hover:text-[#eee]"
+              >
                 Terms
               </Link>
-              <Link href="" className="block">
+              <Link
+                href=""
+                className="block transition transition-all duration-300 hover:text-[#eee]"
+              >
                 Privacy
               </Link>
-              <Link href="" className="block">
+              <Link
+                href=""
+                className="block transition transition-all duration-300 hover:text-[#eee]"
+              >
                 Cookies
               </Link>
             </div>
