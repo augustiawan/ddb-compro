@@ -121,14 +121,23 @@
   }
 }
 
+html,
 body {
   color: var(--main-text-color);
   background: var(--main-background);
   font-family: "Barlow Semi Condensed";
+  font-smooth: always;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.shrinking {
+  @apply fixed top-24;
 }

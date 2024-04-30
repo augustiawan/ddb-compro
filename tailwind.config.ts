@@ -39,12 +39,15 @@ const config: Config = {
       colors: {
         white: {
           DEFAULT: "#ffffff",
+          300: "#FFFDFD",
         },
         black: {
           DEFAULT: "#000000",
         },
         blue: {
           DEFAULT: "#0344DC",
+          200: "#0081FF",
+          300: "#C8EDFF",
         },
       },
       spacing: {

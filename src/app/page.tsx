@@ -1,15 +1,17 @@
-"use client";
+import React from "react";
+import Layout from "@/components/Layout";
+import HeroBanner from "@/components/Section/HeroBanner";
+import HomeContent from "@/components/HomeContent";
 
-import React, { useEffect } from "react";
-import Image from "next/image";
-import { redirect } from "next/navigation";
+import worksJson from "@/data/works.json";
+import jurnalJson from "@/data/jurnal.json";
+import merchJson from "@/data/merch.json";
 
 export default function Home() {
-  useEffect(() => {
-    redirect("/under-construction");
-  }, []);
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <Layout>
+      <HeroBanner />
+      <HomeContent works={worksJson} jurnal={jurnalJson} merch={merchJson} />
+    </Layout>
   );
 }
