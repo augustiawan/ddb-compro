@@ -1,15 +1,19 @@
+"use client";
+
 import React, { ReactNode } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
 
 type SidebarContainer = {
   children: ReactNode;
+  sidebarContent?: ReactNode;
 };
 
-const SidebarContainer = ({ children }: SidebarContainer) => {
+const SidebarContainer = ({ children, sidebarContent }: SidebarContainer) => {
   return (
-    <div className="relative h-auto w-screen mt-[100px]">
-      <div className="w-full flex items-start space-x-32 px-32">
-        <div className="w-[340px] h-[calc(100dvh_-_48px)] sticky top-0">
+    <div className="block w-full">
+      <div className="w-full flex items-start lg:space-x-32 px-16 md:px-32 py-24">
+        <div className="shrink-0 w-[340px] h-[calc(100dvh_-_48px)] fixed lg:sticky left-[-100%] lg:left-0 top-24">
           <div className="flex flex-col justify-between h-full">
             <div className="w-full relative">
               <div className="w-full aspect-[18/5] relative">
@@ -50,30 +54,7 @@ const SidebarContainer = ({ children }: SidebarContainer) => {
                 </li>
               </ul>
 
-              <div className="block bg-white rounded-[12px] px-16 py-24 mt-32">
-                <ul className="">
-                  <li className="my-[5px]">
-                    <span className="text-[21px] leading-[25.08px] font-medium">
-                      Recent Work
-                    </span>
-                  </li>
-                  <li className="my-[5px]">
-                    <span className="text-[21px] leading-[25.08px] font-medium">
-                      Whate We Do
-                    </span>
-                  </li>
-                  <li className="my-[5px]">
-                    <span className="text-[21px] leading-[25.08px] font-medium">
-                      Jurnal
-                    </span>
-                  </li>
-                  <li className="my-[5px]">
-                    <span className="text-[21px] leading-[25.08px] font-medium">
-                      Didibi Objek
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              {sidebarContent}
             </div>
 
             <div className="block">
@@ -95,7 +76,7 @@ const SidebarContainer = ({ children }: SidebarContainer) => {
             </div>
           </div>
         </div>
-        <div className="relative max-w-full">
+        <div className="relative max-w-full w-full">
           <div className="w-full">{children}</div>
         </div>
       </div>
