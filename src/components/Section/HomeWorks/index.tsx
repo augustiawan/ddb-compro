@@ -10,14 +10,17 @@ export type TWorkThumbProps = TCardWorkThumbProps & {
 
 export type THomeWorksProps = {
   works: TWorkThumbProps[];
+  noTitle?: boolean;
 };
 
-const HomeWorks = ({ works }: THomeWorksProps) => {
+const HomeWorks = ({ works, noTitle = true }: THomeWorksProps) => {
   return (
     <div className="block w-full">
-      <h6 className="uppercase font-mono font-semibold text-blue text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
-        recent work
-      </h6>
+      {noTitle && (
+        <h6 className="uppercase font-mono font-semibold text-blue text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
+          recent work
+        </h6>
+      )}
       <div className="grid grid-cols-4 content-end gap-[12px] md:gap-[20px]">
         {works.map((item: TWorkThumbProps, index: number) => (
           <div

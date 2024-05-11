@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 
 export type TCardJurnalProps = {
   title: string;
   url?: string;
-  description?: string;
+  description?: string | ReactNode;
 };
 
 const CardJurnal = (props: TCardJurnalProps) => {

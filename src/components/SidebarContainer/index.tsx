@@ -1,32 +1,31 @@
 "use client";
 
-import React, { ReactNode } from "react";
-import Image from "next/image";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type SidebarContainer = {
   children: ReactNode;
   sidebarContent?: ReactNode;
+  sidebarHead?: ReactNode;
 };
 
-const SidebarContainer = ({ children, sidebarContent }: SidebarContainer) => {
+const SidebarContainer = ({
+  children,
+  sidebarContent,
+  sidebarHead,
+}: SidebarContainer) => {
   return (
     <div className="block w-full">
       <div className="w-full flex items-start lg:space-x-32 px-16 md:px-32 py-24">
         <div className="shrink-0 w-[340px] h-[calc(100dvh_-_48px)] fixed lg:sticky left-[-100%] lg:left-0 top-24">
           <div className="flex flex-col justify-between h-full">
             <div className="w-full relative">
-              <div className="w-full aspect-[18/5] relative">
-                <Image
-                  src="/images/logo-ddb-full.svg"
-                  alt="Home Banner"
-                  sizes="auto"
-                  fill={true}
-                  className="absolute object-center w-full h-full"
-                />
-              </div>
+              {sidebarHead && <div className="mb-[28px]">{sidebarHead}</div>}
 
-              <ul className="flex flex-wrap gap-[6px] mt-[28px]">
+              <ul className="flex flex-wrap gap-[6px]">
                 <li className="cursor-pointer rounded-[19px] py-[2px] px-16 block bg-white-300">
                   <span className="uppercase text-black text-18 leading-[21.49px] font-semibold">
                     Index

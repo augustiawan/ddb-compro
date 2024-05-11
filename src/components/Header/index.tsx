@@ -27,6 +27,26 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollPosition > 0) {
+      setIsScrollingDown(true);
+    } else {
+      setIsScrollingDown(false);
+    }
+  }, [scrollPosition]);
+
+  useEffect(() => {
     const staggerMenu = gsap.to(menuRef.current, {
       y: -88,
       duration: 0.05,
@@ -134,7 +154,7 @@ const Header = () => {
       <div className="fixed w-full flex justify-end px-16 py-20 z-[100]">
         <div
           id="nav-icon3"
-          className={`relative z-30 block tablet-min:hidden ${
+          className={`relative z-30 block md:hidden ${
             openNavbar ? "open" : ""
           }`}
           onClick={handleNavbar}
