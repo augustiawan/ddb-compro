@@ -10,7 +10,7 @@ const AboutJob = () => {
         JOBS
       </h5>
       <p className="font-barlowcondensed text-24 leading-[30.48px]">
-        We're currently on the look out for a Brand Strategist and a Senior
+        We&apos;re currently on the look out for a Brand Strategist and a Senior
         Account Manager. If you think you would be a good fit for either role,
         please email{" "}
         <a href="mailto:dassein.general@gmail.com" className="text-blue-200">
@@ -30,10 +30,12 @@ const AboutJob = () => {
                 Searching for an enthusiastic, creative and organised Senior
                 Account Manager to join our team in London at our studio based
                 in Shoreditch. <br />
-                <br /> Role <br /> As our senior account manager, you will be
-                the friendly face and main point of contact for our clients,
-                ensuring all our work meets a high standard, is delivered on
-                time and on budget.
+                <br />
+                Role
+                <br />
+                As our senior account manager, you will be the friendly face and
+                main point of contact for our clients, ensuring all our work
+                meets a high standard, is delivered on time and on budget.
               </span>
             }
             url="#"
@@ -46,8 +48,11 @@ const AboutJob = () => {
                 track record in successfully launching new products to market to
                 join us on a 6 month contract.
                 <br />
-                <br /> Role <br /> You will play a key role in developing OMSE’s
-                strategic output. You’ll be diving deep into client’s businesses
+                <br />
+                Role
+                <br />
+                You will play a key role in developing OMSE&apos;s strategic
+                output. You&apos;ll be diving deep into client&apos;s businesses
                 and executing comprehensive brand strategies that drive
                 successful launches. If you have a passion for creating
                 compelling brand narratives, a keen understanding of market
