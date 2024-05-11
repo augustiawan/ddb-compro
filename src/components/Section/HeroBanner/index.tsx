@@ -2,43 +2,67 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import withDimension, { TWithDimensionProps } from "@/utils/withDImension";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-const HeroBanner = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const HeroBanner = (props: TWithDimensionProps) => {
+  const { windowDimension } = props;
   const imageRef = useRef<any>(null);
   const containerRef = useRef<any>(null);
+  const paragrafRef = useRef<any>(null);
 
-  // useEffect(() => {
-  //   console.log(containerRef.current.clientHeight);
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: imageRef.current,
-  //       start: "+=64 88",
-  //       end: "+=" + (containerRef.current.clientHeight - 64),
-  //       scrub: true,
-  //       pin: false,
-  //       markers: true,
-  //       toggleClass: "shrinking",
-  //     },
-  //     onReverseComplete: () => {
-  //       console.log("reverse complete");
-  //     },
-  //   });
+  useEffect(() => {
+    if (windowDimension.width > 768) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "+=64 88",
+          end: "+=" + containerRef.current.clientHeight,
+          scrub: false,
+          pin: false,
+          markers: false,
+          toggleClass: "shrinking",
+          toggleActions: "play none none reverse",
+        },
+        onReverseComplete: () => {
+          console.log("reverse complete");
+        },
+      });
 
-  //   tl.to(imageRef.current, {
-  //     width: "340px",
-  //     duration: 0.5,
-  //   });
-  // }, []);
+      tl.fromTo(
+        imageRef.current,
+        {
+          width: containerRef.current.clientWidth - 64,
+        },
+        {
+          width: "340px",
+          duration: 0.2,
+          ease: "none",
+        }
+      );
+
+      tl.to(
+        paragrafRef.current,
+        {
+          y: -45,
+          opacity: 0,
+          duration: 0.3,
+        },
+        "<+0.1"
+      );
+    }
+  }, []);
 
   return (
     <div
       className="px-16 md:px-32 pb-[40px] md:pb-[70px] lg:pb-[100px] pt-[60px] md:pt-[88px]"
       ref={containerRef}
     >
-      <div className="w-full aspect-[18/5] relative justify-self-start relative">
+      <div className="w-full aspect-[18/5] relative justify-self-start relative z-[2]">
         <div
           className="w-full !max-w-full min-w-[340px] aspect-[18/5] relative transition-all"
           ref={imageRef}
@@ -54,7 +78,10 @@ const HeroBanner = () => {
       </div>
 
       <div className="mt-32 md:mt-[40px]">
-        <p className="uppercase font-mono text-[21px] md:text-24 lg:text-[40px] leading-[31px] md:leading-[38px] lg:leading-[50.8px] text-blue">
+        <p
+          className="uppercase font-mono text-[21px] md:text-24 lg:text-[40px] leading-[31px] md:leading-[38px] lg:leading-[50.8px] text-blue translate-y-[0]"
+          ref={paragrafRef}
+        >
           Dassein Established in 2016, Dassein Design Bureau is a
           multidisciplinary design studio based in Bandung, Indonesia. The
           design aspect in business has a crucial function, which we respond to
@@ -66,4 +93,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner;
+export default withDimension(HeroBanner);

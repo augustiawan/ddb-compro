@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import SidebarContainer from "@/components/SidebarContainer";
-import HomeWorks from "../Section/HomeWorks";
-import { THomeWorksProps } from "@/components/Section/HomeWorks";
+import HomeWorks, { THomeWorksProps } from "@/components/Section/HomeWorks";
 import HomeServices from "@/components/Section/HomeServices";
 import HomeJurnal, { THomeJurnalProps } from "@/components/Section/HomeJurnal";
 import HomeMerch, { THomeMerchProps } from "@/components/Section/HomeMerch";
@@ -12,8 +11,18 @@ import withScrollActive, {
 } from "@/utils/withScrollActive";
 import Link from "next/link";
 import ScrollSpy from "react-scrollspy-navigation";
+import Image from "next/image";
+import withDimension, { TWithDimensionProps } from "@/utils/withDImension";
 
-type THomeContentProps = THomeWorksProps & THomeJurnalProps & THomeMerchProps;
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+type THomeContentProps = THomeWorksProps &
+  THomeJurnalProps &
+  THomeMerchProps &
+  TWithDimensionProps;
 
 const sectionIds = [
   {
@@ -35,13 +44,35 @@ const sectionIds = [
 ];
 
 const HomeContent = (props: THomeContentProps) => {
-  const { works, jurnal, merch } = props;
+  const { works, jurnal, merch, windowDimension } = props;
+  const imageRef = useRef<any>(null);
+  const containerRef = useRef<any>(null);
 
   const onClickEachHandler = (e: any, next: any, container: any) => {
     console.log("The clicked element:", e.target);
     console.log("The target container element:", container);
     next();
   };
+
+  useEffect(() => {
+    if (windowDimension.width > 768) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "max",
+          toggleActions: "play none none reverse",
+          markers: false,
+        },
+      });
+
+      tl.to(imageRef.current, {
+        opacity: 1,
+        duration: 0,
+        ease: "none",
+      });
+    }
+  }, []);
 
   return (
     <SidebarContainer
@@ -70,7 +101,22 @@ const HomeContent = (props: THomeContentProps) => {
           </ScrollSpy>
         </div>
       }
+      sidebarHead={
+        <div
+          className="w-full aspect-[18/5] relative opacity-0 !transition-none"
+          ref={imageRef}
+        >
+          <Image
+            src="/images/logo-ddb-full.svg"
+            alt="Home Banner"
+            sizes="auto"
+            fill={true}
+            className="absolute object-center w-full h-full"
+          />
+        </div>
+      }
     >
+      <div className="" ref={containerRef}></div>
       <div className="block w-full" id="target-work">
         <HomeWorks works={works} />
       </div>
@@ -87,4 +133,4 @@ const HomeContent = (props: THomeContentProps) => {
   );
 };
 
-export default HomeContent;
+export default withDimension(HomeContent);
