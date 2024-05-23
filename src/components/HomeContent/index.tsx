@@ -12,7 +12,7 @@ import withScrollActive, {
 import Link from "next/link";
 import ScrollSpy from "react-scrollspy-navigation";
 import Image from "next/image";
-import withDimension, { TWithDimensionProps } from "@/utils/withDImension";
+import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -43,8 +43,8 @@ const sectionIds = [
   },
 ];
 
-const HomeContent = (props: THomeContentProps) => {
-  const { works, jurnal, merch, windowDimension } = props;
+const HomeContent = (props: any) => {
+  const { works, jurnal, merch, windowDimension, dataWorks } = props;
   const imageRef = useRef<any>(null);
   const containerRef = useRef<any>(null);
 
@@ -53,7 +53,8 @@ const HomeContent = (props: THomeContentProps) => {
     console.log("The target container element:", container);
     next();
   };
-
+  console.log(dataWorks);
+  console.log(works);
   useEffect(() => {
     if (windowDimension.width > 768) {
       const tl = gsap.timeline({

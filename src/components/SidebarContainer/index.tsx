@@ -19,7 +19,7 @@ const SidebarContainer = ({
 }: SidebarContainer) => {
   return (
     <div className="block w-full">
-      <div className="w-full flex items-start lg:space-x-32 px-16 md:px-32 py-24">
+      <div className="w-full flex items-start lg:space-x-48 px-16 md:px-24 lg:px-32 py-24">
         <div className="shrink-0 w-[340px] h-[calc(100dvh_-_48px)] fixed lg:sticky left-[-100%] lg:left-0 top-24">
           <div className="flex flex-col justify-between h-full">
             <div className="w-full relative">

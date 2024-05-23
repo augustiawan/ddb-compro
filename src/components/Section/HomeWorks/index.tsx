@@ -17,7 +17,7 @@ const HomeWorks = ({ works, noTitle = true }: THomeWorksProps) => {
   return (
     <div className="block w-full">
       {noTitle && (
-        <h6 className="uppercase font-mono font-semibold text-blue text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
+        <h6 className="uppercase font-mono font-semibold text-blue-200 text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
           recent work
         </h6>
       )}

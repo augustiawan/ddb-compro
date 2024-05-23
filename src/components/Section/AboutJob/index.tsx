@@ -6,10 +6,10 @@ import CardJurnal, { TCardJurnalProps } from "@/components/Cards/CardJurnal";
 const AboutJob = () => {
   return (
     <div className="block w-full mt-[65px] overflow-hidden">
-      <h5 className="uppercase font-mono font-semibold text-blue-200 text-[26px] leading-[33.02px] mb-32">
+      <h5 className="uppercase font-mono font-semibold text-blue-200 text-24 md:text-[26px] leading-[33.02px] mb-24 md:mb-32">
         JOBS
       </h5>
-      <p className="font-barlowcondensed text-24 leading-[30.48px]">
+      <p className="font-barlowcondensed text-20 md:text-24 leading-[26px] md:leading-[30.48px]">
         We&apos;re currently on the look out for a Brand Strategist and a Senior
         Account Manager. If you think you would be a good fit for either role,
         please email{" "}
@@ -22,7 +22,7 @@ const AboutJob = () => {
         <h6 className="font-barlowcondensed font-bold text-18 leading-[48px] tracking-[-0.02em] mt-24 mb-16">
           Job Listings
         </h6>
-        <div className="grid grid-cols-2 gap-[20%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[20%]">
           <CardJurnal
             title="Senior Account Manager"
             description={

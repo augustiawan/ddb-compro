@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import withDimension, { TWithDimensionProps } from "@/utils/withDImension";
+import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -77,16 +77,16 @@ const HeroBanner = (props: TWithDimensionProps) => {
         </div>
       </div>
 
-      <div className="mt-32 md:mt-[40px]">
-        <p
-          className="uppercase font-mono text-[21px] md:text-24 lg:text-[40px] leading-[31px] md:leading-[38px] lg:leading-[50.8px] text-blue translate-y-[0]"
-          ref={paragrafRef}
-        >
+      <div className="mt-32 md:mt-[40px] translate-y-[0]" ref={paragrafRef}>
+        <p className="uppercase font-mono text-[21px] md:text-24 lg:text-[40px] leading-[31px] md:leading-[38px] lg:leading-[50.8px] text-blue">
           Dassein Established in 2016, Dassein Design Bureau is a
           multidisciplinary design studio based in Bandung, Indonesia. The
           design aspect in business has a crucial function, which we respond to
           and we deepen so that each existing design can bridge all aspects of
-          the needs of each business problem that is being faced.{" "}
+          the needs of each business problem that is being faced.
+        </p>
+        <p className="uppercase font-mono text-[21px] md:text-24 lg:text-[40px] leading-[31px] md:leading-[38px] lg:leading-[50.8px] text-blue mt-16">
+          WE DESIGN A DESIGN TO DESIGN YOUR BUSINESS.
         </p>
       </div>
     </div>
