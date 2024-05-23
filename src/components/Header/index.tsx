@@ -6,10 +6,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MenuMobile from "./MenuMobile";
 import "./style.css";
+import {
+  MENU_INDEX,
+  MENU_WORKS,
+  MENU_STUDIO,
+  MENU_JURNAL,
+  MENU_DIDIBI,
+  MENU_CONTACT,
+} from "@/store/constant";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Header = () => {
+const Header = (props: { activeMenu: string }) => {
+  const { activeMenu } = props;
   const menuRef = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -75,83 +84,99 @@ const Header = () => {
         <div className="flex justify-between items-center gap-[16px] lg:gap-[24px]">
           <div className="md:hidden lg:flex gap-[16px] lg:gap-[24px]">
             <Link
-              href=""
-              className="block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/"
+              className={`block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_INDEX ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 Index
               </span>
             </Link>
             <Link
-              href=""
-              className="block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/works"
+              className={`block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_WORKS ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 WORKS
               </span>
             </Link>
           </div>
           <div className="flex gap-[18px] md:justify-around lg:justify-end md:w-full lg:w-auto">
             <Link
-              href=""
-              className="md:block lg:hidden bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/"
+              className={`md:block lg:hidden bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_STUDIO ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 Index
               </span>
             </Link>
             <Link
-              href=""
-              className="md:block lg:hidden bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/works"
+              className={`md:block lg:hidden bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_WORKS ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 WORKS
               </span>
             </Link>
             <Link
-              href=""
-              className="block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/studio"
+              className={`block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_STUDIO ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 STUDIO
               </span>
             </Link>
             <Link
-              href=""
-              className="block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/jurnal"
+              className={`block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_JURNAL ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 JURNAL
               </span>
             </Link>
             <Link
-              href=""
-              className="block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              href="/didibi"
+              className={`block bg-white transition duration-300 hover:bg-[#f2f2f2] rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_DIDIBI ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-black group-[.active]:text-blue-200">
                 DIDIBI
               </span>
             </Link>
             <Link
               href=""
-              className="block bg-blue transition duration-300 hover:bg-[#f2f2f2]-200 rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center"
+              className={`block bg-blue transition duration-300 hover:bg-[#f2f2f2]-200 rounded-[24px] py-8 md:px-[20px] lg:px-[24px] text-center group ${
+                activeMenu === MENU_CONTACT ? "active" : ""
+              }`}
               ref={addMenuToRefs}
             >
-              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-white">
+              <span className="uppercase font-mono md:text-16 lg:text-[18.98px] md:leading-[20px] lg:leading-[22.78px] text-white group-[.active]:text-blue-200">
                 CONTACT
               </span>
             </Link>
           </div>
         </div>
       </div>
-      <div className="fixed w-full flex justify-end px-16 py-20 z-[100]">
+      <div className="fixed w-full flex justify-end px-16 py-20 z-[100] block md:hidden">
         <div
           id="nav-icon3"
           className={`relative z-30 block md:hidden ${
@@ -181,43 +206,69 @@ const Header = () => {
           </div>
           <ul className="text-center">
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${activeMenu === MENU_INDEX ? "active" : ""}`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   Index
                 </span>
               </Link>
             </li>
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${activeMenu === MENU_WORKS ? "active" : ""}`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   Works
                 </span>
               </Link>
             </li>
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${
+                  activeMenu === MENU_STUDIO ? "active" : ""
+                }`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   Studio
                 </span>
               </Link>
             </li>
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${
+                  activeMenu === MENU_JURNAL ? "active" : ""
+                }`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   Jurnal
                 </span>
               </Link>
             </li>
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${
+                  activeMenu === MENU_DIDIBI ? "active" : ""
+                }`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   DIDIBI
                 </span>
               </Link>
             </li>
             <li className="text-[25px] leading-tight py-12 stagger-item">
-              <Link href="">
-                <span className="block uppercase text-blue font-medium">
+              <Link
+                href=""
+                className={`group ${
+                  activeMenu === MENU_CONTACT ? "active" : ""
+                }`}
+              >
+                <span className="block uppercase text-blue font-medium group-[.active]:text-black">
                   Contact
                 </span>
               </Link>

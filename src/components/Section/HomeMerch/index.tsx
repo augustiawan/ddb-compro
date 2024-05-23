@@ -8,7 +8,7 @@ export type THomeMerchProps = {
 const HomeMerch = (props: THomeMerchProps) => {
   return (
     <div className="block w-full mt-[40px] md:mt-[70px] mb-[15px]">
-      <h6 className="uppercase font-mono font-semibold text-blue text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
+      <h6 className="uppercase font-mono font-semibold text-blue-200 text-[26px] leading-[33.02px] mb-16 md:mb-[28px] lg:mb-[34px]">
         DIDIBI OBJEK
       </h6>
       <div className="flex items-start mt-32 overflow-auto pb-8">

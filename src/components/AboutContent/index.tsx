@@ -4,9 +4,12 @@ import React, { useState, useEffect, useRef } from "react";
 import SidebarContainer from "@/components/SidebarContainer";
 import Image from "next/image";
 import ScrollSpy from "react-scrollspy-navigation";
-import AboutPrinciples from "../Section/AbourPrinciples";
+import AboutPrinciples from "@/components/Section/AbourPrinciples";
 import AboutJob from "@/components/Section/AboutJob";
 import HomeServices from "@/components/Section/HomeServices";
+import AboutClient from "@/components/Section/AboutClient";
+import AboutMap from "@/components/Section/AboutMap";
+import AboutTeam from "@/components/Section/AboutTeam";
 
 const sectionIds = [
   {
@@ -37,21 +40,32 @@ const AboutContent = () => {
 
   return (
     <div className="">
-      <div className="block w-full relative h-[100dvh] max-h-[695px] mb-[40px]">
-        <Image
-          src="/images/banner/banner-about.jpg"
-          alt="Works Banner"
-          sizes="auto"
-          fill={true}
-          className="absolute object-top object-cover w-full h-full"
-        />
-        <div className="max-w-[1024px] lg:max-w-[1280px] w-full px-16 absolute bottom-[50px] left-0 right-0 m-auto">
-          <p className="font-mono font-semibold text-[30px] leading-[127%] text-white">
+      <div className="block w-full relative aspect-[16/8] lg:aspect-none lg:h-[100dvh] max-h-[695px] mb-16 md:mb-[40px]">
+        <div className="absolute w-full h-full bg-[url('/images/bg-repeat-about.jpg')] bg-repeat bg-contain bg-center z-[0]"></div>
+        <div className="max-w-[1024px] lg:max-w-[1280px] w-full h-full relative m-auto z-[1]">
+          <Image
+            src="/images/banner/banner-about.jpg"
+            alt="Works Banner"
+            sizes="auto"
+            fill={true}
+            className="absolute object-top object-cover w-full h-full"
+          />
+        </div>
+        <div className="max-w-[1024px] lg:max-w-[1280px] w-full px-16 absolute bottom-[24px] lg:bottom-[50px] left-0 right-0 m-auto z-[2] hidden md:block">
+          <p className="font-mono font-semibold text-24 lg:text-[30px] leading-tight lg:leading-[127%] text-white">
             Founded in 2013, Dassein is a branding studio, begun by Dhanny &
             Shanni. We act as a creative inspiration to encourage our clients to
             take charge of their own brand identity.
           </p>
         </div>
+      </div>
+
+      <div className="w-full px-16 relative m-auto mb-18 block md:hidden">
+        <p className="font-mono font-semibold text-18 leading-tight text-blue">
+          Founded in 2013, Dassein is a branding studio, begun by Dhanny &
+          Shanni. We act as a creative inspiration to encourage our clients to
+          take charge of their own brand identity.
+        </p>
       </div>
 
       <SidebarContainer
@@ -95,13 +109,21 @@ const AboutContent = () => {
         <div id="target-principles">
           <AboutPrinciples />
         </div>
-        <div id="target-client"></div>
-        <div id="target-team"></div>
+        <div id="target-client">
+          <AboutClient />
+        </div>
+        <div id="target-team">
+          <AboutTeam />
+        </div>
         <div className="block w-full" id="target-services">
           <HomeServices />
         </div>
         <div id="target-jobs">
           <AboutJob />
+        </div>
+
+        <div className="">
+          <AboutMap />
         </div>
       </SidebarContainer>
     </div>

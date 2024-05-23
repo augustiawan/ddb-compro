@@ -17,7 +17,7 @@ const CardJurnal = (props: TCardJurnalProps) => {
         {props.url && (
           <Link
             href={props.url}
-            className="uppercase underline text-16 leading-[19.22px]"
+            className="uppercase underline text-16 leading-[19.22px] hover:no-underline"
           >
             Read
           </Link>

@@ -4,13 +4,14 @@ import Footer from "@/components/Footer";
 
 type TLayoutProps = {
   children: ReactNode;
+  activeMenu: string;
 };
 
-const Layout = ({ children }: TLayoutProps) => {
+const Layout = ({ children, activeMenu }: TLayoutProps) => {
   return (
     <>
       <main className="">
-        <Header />
+        <Header activeMenu={activeMenu} />
         <div className="">{children}</div>
         <Footer />
       </main>

@@ -8,7 +8,7 @@ export type THomeJurnalProps = {
 const HomeJurnal = (props: THomeJurnalProps) => {
   return (
     <div className="block w-full mt-[40px] md:mt-[70px] overflow-hidden">
-      <h6 className="uppercase font-mono font-semibold text-blue text-[26px] leading-[33.02px]">
+      <h6 className="uppercase font-mono font-semibold text-blue-200 text-[26px] leading-[33.02px]">
         JURNAL
       </h6>
       <div className="block">

@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="block w-full bg-blue-300 py-32 md:py-[41px] px-16 md:px-[28px]">
+      <div className="block w-full bg-blue-300 py-32 md:py-[41px] px-16 md:px-24 lg:px-32">
         <div className="flex justify-start-start mb-32 lg:mb-0">
           <h2 className="font-barlowcondensed text-32 md:text-[48px] leading-[37px] md:leading-[57.6px] tracking-[-2%] text-blue block max-w-[491px]">
             Design Bridges Business Finding The Gap Within Your Brand.
@@ -92,8 +92,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="shrink-0">
-            <h5 className="font-semibold text-24 leading-[20.16px] tracking-[-0.03em]">
-              Good Design Brings <br /> Good Business
+            <h5 className="font-semibold text-24 leading-[24.16px] tracking-[-0.03em]">
+              We Design a Design <br /> to Design your Business
             </h5>
           </div>
         </div>
@@ -109,8 +109,8 @@ const Footer = () => {
               />
             </div>
             <div className="shrink-0">
-              <h5 className="font-semibold text-18 md:text-24 leading-[20.16px] tracking-[-0.03em]">
-                Good Design Brings <br /> Good Business
+              <h5 className="font-semibold text-18 md:text-24 leading-tight tracking-[-0.03em]">
+                We Design a Design <br /> to Design your Business
               </h5>
             </div>
           </div>
